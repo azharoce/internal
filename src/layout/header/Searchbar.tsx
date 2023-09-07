@@ -1,0 +1,71 @@
+import { useState } from "react";
+// @mui
+import { styled } from "@mui/material/styles";
+import {
+  Input,
+  Slide,
+  Button,
+  IconButton,
+  InputAdornment,
+  Box,
+  ClickAwayListener,
+  Typography,
+} from "@mui/material";
+// utils
+import { bgBlur } from "../../utils/cssStyles";
+// component
+import Iconify from "../../components/iconify";
+
+// ----------------------------------------------------------------------
+
+const HEADER_MOBILE = 64;
+const HEADER_DESKTOP = 92;
+
+const StyledSearchbar = styled("div")(({ theme }) => ({
+  ...bgBlur({ color: theme.palette.background.default }),
+  top: 0,
+  left: 0,
+  zIndex: 99,
+  width: "100%",
+  display: "flex",
+  position: "absolute",
+  alignItems: "center",
+  height: HEADER_MOBILE,
+  padding: theme.spacing(0, 3),
+  // boxShadow: theme.customShadow,
+  [theme.breakpoints.up("md")]: {
+    height: HEADER_DESKTOP,
+    padding: theme.spacing(0, 5),
+  },
+}));
+
+// ----------------------------------------------------------------------
+
+export default function Searchbar() {
+  const [open, setOpen] = useState(false);
+
+  const handleOpen = () => {
+    setOpen(!open);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+  return (
+    <>
+      <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+        <Box
+          sx={{
+            color: "primary.main",
+            fontWeight: "bold",
+            fontSize: "h6.fontSize",
+            fontStyle: "italic",
+          }}
+        >
+          COMODO
+        </Box>
+      </Typography>
+    </>
+  );
+}

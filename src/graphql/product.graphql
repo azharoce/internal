@@ -1,0 +1,29 @@
+query GetOurStore {
+  getOurStore {
+    result {
+      id
+      address
+      hour
+      kota
+      mobilePhone
+      lat
+      longitude
+      mall
+      phone
+      thumb
+      title
+    }
+    meta {
+      page
+      size
+      sort
+      sortType
+      keyword
+      totalData
+      totalPage
+      message
+      error
+      code
+    }
+  }
+}
